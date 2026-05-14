@@ -12,6 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const infoBtn =document.getElementById('info-btn');
     const infoPage =document.getElementById('info-page');
     const returnBtn =document.getElementById('return-btn'); /* Click event listener: Runs addTodo function when button is clicked */
+
+    /* Restore the saved theme from localStorage on page load */
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        darkModeBtn.textContent = '☀️';
+    } else {
+        document.body.classList.remove('dark-mode');
+        darkModeBtn.textContent = '🌙';
+    }
+
     addBtn.addEventListener('click', addTodo);
     
     /* Keypress event listener: Runs addTodo function when Enter key is pressed in input field */
@@ -78,7 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
          * System preference approach: combine JS toggle with prefers-color-scheme for default mode. */
     darkModeBtn.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
-        darkModeBtn.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        const isDark = document.body.classList.contains('dark-mode');
+        darkModeBtn.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
   
     /* Function to add a new todo item to the list */
