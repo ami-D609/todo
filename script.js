@@ -23,7 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const gain = click.createGain();
         oscillator.type = 'triangle';
         oscillator.frequency.value = frequency;
-        gain.gain.value = 0.08;
+        if (frequency < 500) {
+            gain.gain.value = 0.5;
+        }
+        else{gain.gain.value=0.08;}
         oscillator.connect(gain);
         gain.connect(click.destination);
         oscillator.start();
