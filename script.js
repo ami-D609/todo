@@ -9,9 +9,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuBtn = document.getElementById('menu-btn');          // Hamburger menu button
     const todoPage = document.getElementById('todo-page');        // Todo page section
     const aboutPage = document.getElementById('about-page');      // About us section
-    const infoBtn =document.getElementById('info-btn');
-    const infoPage =document.getElementById('info-page');
-    const returnBtn =document.getElementById('return-btn'); /* Click event listener: Runs addTodo function when button is clicked */
+    const infoBtn = document.getElementById('info-btn');
+    const infoPage = document.getElementById('info-page');
+    const returnBtn = document.getElementById('return-btn');
+
+    /* Create a lightweight click sound using the Web Audio API */
+    const click = new (window.AudioContext || window.webkitAudioContext)();
+    function playClickSound(frequency = 520) {
+        if (typeof frequency !== 'number') {
+            frequency = 520;
+        }
+        const oscillator = click.createOscillator();
+        const gain = click.createGain();
+        oscillator.type = 'triangle';
+        oscillator.frequency.value = frequency;
+        gain.gain.value = 0.08;
+        oscillator.connect(gain);
+        gain.connect(click.destination);
+        oscillator.start();
+        oscillator.stop(click.currentTime + 0.05);
+    }
+    /* Play sound on any button click in the app */
+    document.querySelectorAll('button').forEach(button => {
+     const i = button===addBtn?1000:220;
+        button.addEventListener('click', () => playClickSound(i));
+    });
+    /* Click event listener: Runs addTodo function when button is clicked */
     addBtn.addEventListener('click', addTodo);
     
     /* Keypress event listener: Runs addTodo function when Enter key is pressed in input field */
