@@ -1,0 +1,487 @@
+/* BODY: Styles the main page background and layout */
+body {
+    /* font-family: Chooses which text style (font) to use throughout the page
+       In simple terms: Think of it as choosing a handwriting style for your entire page
+       Comic Sans MS is a fun, rounded font. sans-serif is a backup if Comic Sans doesn't load
+       Example: If font-family was 'Arial', all text would look more formal and clean */
+    font-family: 'Comic Sans MS', sans-serif;
+    
+    /* background-color: Sets the color that fills the entire background of the page
+       In simple terms: It's like painting the wall of a room - everything behind your content
+       #e7f5f7 is a light blue color (# followed by 6 characters is a color code)
+       Example: If this was #FF0000, the background would be bright red */
+    background-color: #e7f5f7;
+    
+    /* margin: Creates empty space OUTSIDE an element (between element and other things)
+       In simple terms: It's like the border around a picture frame - space around the outside
+       10px means 10 pixels of space on all sides (think of pixels as tiny dots)
+       Example: If margin was 50px, there would be a bigger gap between the page and your browser edges */
+    margin: 50px;
+    
+    /* padding: Creates empty space INSIDE an element (between the border and the content)
+       In simple terms: It's like the space between a picture and the frame
+       0 means no extra space inside, keeping content flush against edges
+       Example: If padding was 20px, there would be space between the page edge and your content */
+    padding: 0;
+    
+    /* display: flex: Arranges items using a flexible layout system called "flexbox"
+       In simple terms: It's like having a container where you can easily position and arrange items
+       flex is a modern way to center things and organize layouts neatly
+       Example: Without flex, centering content would be very complicated; flex makes it easy */
+    display: flex ;
+    
+    /* justify-content: center: Centers items horizontally (left to right) when using flexbox
+       In simple terms: It pushes all your content to the middle of the page (like centering text)
+       center means arrange items in the middle of the available horizontal space
+       Example: If this was 'flex-start', items would stick to the left side of the page */
+    justify-content: center;
+    
+    /* align-items: center: Centers items vertically (top to bottom) when using flexbox
+       In simple terms: It pushes all your content to the middle height of the page
+       center means arrange items in the middle of the available vertical space
+       Example: If this was 'flex-start', items would stick to the top of the page */
+    align-items: center;
+    
+    /* height: 100vh: Sets the height to fill the entire visible browser window
+       In simple terms: 100vh means "use 100% of my viewing window"
+       vh = "viewport height" (the window you're looking at)
+       Example: If this was 50vh, the body would only take up half the screen height */
+    height: 100vh;
+}
+
+/* .container: Styles the main content wrapper box (the white box holding all your todos) */
+.container {
+    /* background-color: rgb(255, 255, 255): Sets the container background to white
+       In simple terms: This is the background color of the main box where your todos appear
+       rgb(255, 255, 255) is pure white (255 red, 255 green, 255 blue = white)
+       Example: rgb(0, 0, 0) would be pure black, giving a dark background */
+    background-color: rgb(255, 255, 255);
+    
+    /* padding: 30px: Adds 30 pixels of space inside the container on all sides
+       In simple terms: It creates breathing room between the white box border and your content
+       30px means 30 pixels (about 1/3 of an inch) on all four sides
+       Example: If padding was 5px, everything would be cramped inside the box */
+    padding: 50px;
+    
+    /* border-radius: 80px: Rounds all corners of the container box
+       In simple terms: Instead of sharp corners, this makes them smooth and curved
+       80px means each corner is rounded with a curve of 80 pixels
+       Example: If this was 0px, you'd see sharp 90-degree corners; if 200px, it becomes oval */
+    border-radius: 80px;
+    
+    /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1): Adds a subtle shadow around the container
+       In simple terms: It makes the box look like it's floating slightly above the page
+       0px 0px means the shadow starts right at the edge (no offset)
+       20px means the shadow spreads out 20 pixels before fading
+       rgba(0, 0, 0, 0.1) means black shadow at 10% visibility (very light)
+       Example: box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5) would show a darker, offset shadow */
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    
+    /* width: 300px: Sets the box width to 300 pixels
+       In simple terms: It controls how wide your todo app box is
+       300px is a fixed size (not flexible based on screen size)
+       Example: If this was 100px, the box would be very narrow; 500px would be wide */
+    width: 300px;
+}
+
+/* h1: Styles the heading text ("SIMPLE-TO-DO") */
+h1 {
+    /* text-align: center: Aligns the heading text to the center
+       In simple terms: Pushes the text to the middle instead of starting from the left
+       center means the text is positioned in the middle of its container
+       Example: If this was 'left', the heading would appear at the left edge */
+    text-align: center;
+    
+    /* color: #333: Sets the heading text color to dark gray
+       In simple terms: This is the actual color of the letters in your heading
+       #333 is a dark gray color (very close to black but slightly lighter)
+       Example: If this was #FFFFFF, the heading would be white; #FF0000 would be red */
+    color: #333;
+}
+p
+{ text-align:center;}
+/* .input-container: Styles the flex container holding the input field and add button */
+.input-container {
+    /* display: flex: Uses flexbox layout to arrange items in a row (side by side)
+       In simple terms: Instead of stacking on top of each other, items line up horizontally
+       flex means "arrange these items flexibly - they can grow or shrink to fit space"
+       Example: Without flex, the input and button would appear on separate lines */
+    display: flex;
+    
+    /* margin-bottom: 20px: Adds 20 pixels of space BELOW the input container
+       In simple terms: Creates space between the input area and the todo list below it
+       20px is the gap between this element and whatever comes after it
+       Example: If this was 0px, the todo list would sit right against the input field */
+    margin-bottom: 20px;
+}
+
+/* #todo-input: Styles the text input field where users type their todos */
+#todo-input {
+    /* flex: 1: Makes the input field expand to fill available space
+       In simple terms: The input stretches to take up all the empty room, pushing the button to the right
+       1 means "give me 1 unit of space" (in flex, this means "take all available space")
+       Example: If this was 0, the input would shrink to fit only its content */
+    flex: 1;
+    
+    /* padding: 10px: Adds 10 pixels of space inside the input field
+       In simple terms: Creates breathing room between your typed text and the field's edges
+       10px on all sides means text doesn't touch the border
+       Example: If padding was 0px, text would feel cramped against the edges */
+    padding: 10px;
+    
+    /* border: 1px solid #ccc: Adds a thin gray border around the input field
+       In simple terms: Draws a visible line around the input box so you can see its boundaries
+       1px means the line is 1 pixel thick (very thin)
+       solid means a continuous line (not dashed)
+       #ccc is light gray color
+       Example: border: 3px dashed #000 would be a thick dashed black line */
+    border: 2px solid #36b44b;
+    
+    /* border-radius: 4px 0 0 4px: Rounds the left corners but keeps right corners sharp
+       In simple terms: The left side of the input looks curved, but right side is straight (connects to button)
+       4px 0 0 4px = top-left, top-right, bottom-right, bottom-left (each gets 4px, 0, 0, or 4px)
+       Example: border-radius: 0 4px 4px 0 would round only the RIGHT corners */
+    border-radius: 4px 0 0 4px;
+}
+
+/* #add-btn: Styles the "ADD TODO" button */
+#add-btn {
+    /* padding: 10px: Adds 10 pixels of space inside the button
+       In simple terms: Creates room inside the button so the text "ADD TODO" isn't cramped
+       10px on all sides makes the button have consistent spacing
+       Example: If padding was 1px, the button would look very small and tight */
+    padding: 10px;
+    
+    /* background-color: #28a745: Sets the button background to green
+       In simple terms: This is the fill color you see when you look at the button
+       #28a745 is a medium green color (commonly used for "go" or "add" actions)
+       Example: If this was #FF0000, the button would be bright red */
+    background-color: hsl(134, 61%, 41%);
+    
+    /* color: white: Sets the text color to white
+       In simple terms: The words "ADD TODO" will be written in white
+       white provides good contrast against the green background
+       Example: If this was #333, the text would be dark gray and hard to read on green */
+    color: white;
+    
+    /* border: none: Removes any border around the button
+       In simple terms: The button has no outline - it's just the green background with text
+       none means "don't draw any line"
+       Example: If this was border: 2px solid #000, there would be a black outline */
+    border: none;
+    
+    /* border-radius: 0 4px 4px 0: Rounds the right corners but keeps left corners sharp
+       In simple terms: The right side of the button looks curved (connects to input on left)
+       0 4px 4px 0 = top-left, top-right, bottom-right, bottom-left (sharp left, curved right)
+       Example: This creates a seamless look where input and button appear as one piece */
+    border-radius: 0 4px 4px 0;
+    
+    /* cursor: pointer: Changes the mouse cursor to a pointing hand when hovering
+       In simple terms: When you move your mouse over the button, the cursor changes to show it's clickable
+       pointer looks like a finger pointing (👆)
+       Example: If this was cursor: default, the cursor would stay as a regular arrow */
+    cursor: pointer;
+}
+
+/* #add-btn:hover: Styles the button when the mouse is hovering over it */
+#add-btn:hover {
+    /* background-color: #218838: Changes button background to darker green on hover
+       In simple terms: When you move your mouse over the button, it gets darker to show it's interactive
+       #218838 is a darker version of the original #28a745 green
+       Example: This gives visual feedback - users know something will happen if they click */
+    background-color: #218838;
+}
+
+/* #todo-list: Styles the unordered list that displays all the todo items */
+#todo-list {
+    /* list-style-type: none: Removes the default bullet points from the list
+       In simple terms: Normal lists have • or ○ bullets, but we don't want those here
+       none means "don't show any bullets, numbers, or list markers"
+       Example: If this was 'disc', you'd see a • before each todo item */
+    list-style-type: none;
+    
+    /* padding: 0: Removes all default padding inside the list
+       In simple terms: Standard lists have indentation (space from the left), but we want none
+       0 means "no extra space inside"
+       Example: If this was 20px, the entire list would be indented from the left */
+    padding: 0;
+}
+
+/* .todo-item: Styles each individual todo item (the row with text and delete button) */
+.todo-item {
+    /* display: flex: Arranges the text and delete button side by side horizontally
+       In simple terms: The todo text appears on the left, delete button on the right, on same line
+       flex enables automatic arrangement and spacing
+       Example: Without flex, the button would appear below the text */
+    display: flex;
+    
+    /* justify-content: space-between: Spreads items to opposite ends of the row
+       In simple terms: Pushes the text to the far left and the delete button to the far right
+       space-between puts maximum space between items (opposite of center)
+       Example: If this was justify-content: center, both would be in the middle together */
+    justify-content: space-between;
+    
+    /* align-items: center: Vertically centers the button next to the text
+       In simple terms: The delete button sits in the middle height-wise, matching the text height
+       center means align to the middle point of the available vertical space
+       Example: If this was flex-start, the button would appear at the very top */
+    align-items: center;
+    
+    /* padding: 10px: Adds 10 pixels of space inside each todo item
+       In simple terms: Creates breathing room inside each todo row
+       10px on all sides gives equal spacing around the text and button
+       Example: If padding was 0px, text would be right against the edges */
+    padding: 10px;
+    margin-top: 2px;
+    border-top :2px solid #e7f5f7;
+    /* border-bottom: 1px solid #eee: Adds a thin light line below each todo item
+       In simple terms: Draws a separator line under each todo to show where one ends and next begins
+       1px means very thin line
+       solid means continuous (not dashed)
+       #eee is very light gray (almost white)
+       Example: border-bottom: 2px solid #000 would be a thick black line */
+    border-bottom : 2px solid #dd1212;
+}
+
+/* .todo-text: Styles the text portion of each todo item (the actual todo description) */
+.todo-text {
+   padding : 5px 10px;
+   border: none;
+   color: rgb(253, 253, 253) ;
+   font-size: 16px;
+   background-color: rgb(215, 237, 255);
+   border-radius: 8px 0px 0px 8px; /* flex: 1: Makes the text expand to fill available space, pushing the button to the right
+       In simple terms: The text takes up as much room as possible, leaving just enough for the button
+       1 means "give me one unit of available space" (take it all)
+       Example: If this was 0, the text would shrink to fit only the actual words */
+    flex: 1;
+}
+.todo-text:hover {
+   color: rgb(34, 35, 36) ;
+   font-size: 11px;
+   background-color: rgb(253, 254, 255);
+   border-radius: 8px 0px 0px 8px; /* flex: 1: Makes the text expand to fill available space, pushing the button to the right
+       In simple terms: The text takes up as much room as possible, leaving just enough for the button
+       1 means "give me one unit of available space" (take it all)
+       Example: If this was 0, the text would shrink to fit only the actual words */
+    flex: 1;
+}
+
+/* .delete-btn: Styles the red delete button for each todo item */
+.delete-btn {
+    /* background-color: #dc3545: Sets the delete button background to red
+       In simple terms: This is the color users see when they look at the delete button
+       #dc3545 is a medium red (commonly used to indicate "delete" or "danger")
+       Example: If this was #4CAF50, the button would be green */
+    background-color: #dc3545;
+    
+    /* color: white: Sets the delete button text to white
+       In simple terms: The word "Delete" appears in white text
+       white contrasts well against the red background
+       Example: If this was #000000, the text would be black (hard to read on red) */
+    color: white;
+    
+    /* border: none: Removes any border around the delete button
+       In simple terms: The button is just red with text, no outline
+       none means "don't draw any line"
+       Example: If this was border: 1px solid #000, there would be a black outline */
+    border: none;
+    
+    /* padding: 5px 10px: Adds padding inside the button
+       In simple terms: Creates space around the text "Delete"
+       5px on top/bottom, 10px on left/right (gives it a button-like appearance)
+       Example: If this was 15px, the button would be much larger */
+    padding: 5px 10px;
+    
+    /* border-radius: 4px: Rounds all corners slightly
+       In simple terms: Instead of sharp square corners, the button has gentle curves
+       4px means moderate rounding
+       Example: If this was 20px, it would look more like an oval; 0px would be sharp corners */
+    border-radius: 0px 8px 8px 0px;
+    
+    /* cursor: pointer: Changes cursor to pointing hand on hover
+       In simple terms: When you move your mouse over the delete button, cursor changes to a hand
+       pointer shows users that this element is clickable
+       Example: If this was cursor: not-allowed, it would show a "forbidden" symbol */
+    cursor: pointer;
+}
+
+/* .delete-btn:hover: Styles the delete button when the mouse is hovering over it */
+.delete-btn:hover {
+    /* background-color: #c82333: Changes button to darker red on hover
+       In simple terms: When you move your mouse over the delete button, it gets darker
+       #c82333 is a darker shade of red than #dc3545
+       Example: This visual feedback tells users the button is ready to be clicked */
+    background-color: #9c1c29;
+}
+
+/* Dark Mode Button */
+#dark-mode-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#dark-mode-btn:hover {
+    background-color: #555;
+}
+
+/* Menu button: hamburger icon for page switching */
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    background-color: #333;
+    color: white;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 10;
+}
+
+.menu-btn:hover {
+    background-color: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .container {
+    background-color: #1e1e1e;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.8);
+}
+
+body.dark-mode h1 {
+    color: #ffffff;
+}
+
+body.dark-mode #todo-input {
+    background-color: #2a2a2a;
+    color: #ffffff;
+    border-color: #555;
+}
+
+body.dark-mode #add-btn {
+    background-color: #4caf50;
+}
+
+body.dark-mode #add-btn:hover {
+    background-color: #45a049;
+}
+
+body.dark-mode .todo-item {
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+}
+
+body.dark-mode .todo-text {
+    background-color: #2a2a2a;
+    color: #ffffff;
+}
+
+body.dark-mode .todo-text:hover {
+    background-color: oklab(34.846% 0 -0.00004);
+    color: #ffffff;
+}
+
+body.dark-mode .delete-btn {
+    background-color: #f44336;
+}
+
+body.dark-mode .delete-btn:hover {
+    background-color: #d32f2f;
+}
+#info-btn
+{ font-family: Comic Sans MS, sans-serif;
+   display:flex;
+   font-weight: bold;
+ align-items:center;
+ justify-content:center;
+ height: 45px;
+ width: 60px;
+ border-radius:8px 8px 8px 8px;
+ background-color:#fcf4f4;
+ padding:10px;
+   border: none;
+
+}
+#info-btn:hover
+{ font-family: Comic Sans MS, sans-serif;
+   display:flex;
+   font-weight: bold;
+ align-items:center;
+ justify-content:center;
+ height: 45px;
+ width: 60px;
+ border-radius:8px 8px 8px 8px;
+ background-color:#f5e4e4;
+ padding:10px;
+   border: 1px solid;
+   border-color: #ee9090;
+   cursor:pointer;
+
+}
+#return-btn
+{
+  position:fixed;
+  font-weight:bold;
+  height:45px;
+  width:45px;
+  top:20px;
+left:20px;
+  border-radius:50%;
+ background-color: oklab(34.846% 0 -0.00004);
+ color:rgb(231, 23, 23);
+  border:none;
+cursor:pointer;}
+#return-btn:hover
+{
+  position:fixed;
+  font-weight:bold;
+  height:45px;
+  width:45px;
+  top:20px;
+left:20px;
+  border-radius:50%;
+ background-color: oklab(21.455% 0.0015 0.00044);
+ color:rgb(150, 8, 8);
+  border:none;
+  border: #9c1c29 solid 2px;
+cursor:pointer;}
+.image
+  {padding:30px;
+   margin:20px;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   background-image: url(zuzo.png) ;
+   background-size: cover;
+   background-position:center;
+   height:150px;
+   width:200px;
+   background-color:transparent;
+   color:white;
+   border-radius :4px 4px 4px 4px;
+  }

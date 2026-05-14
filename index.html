@@ -1,0 +1,78 @@
+<!-- DOCTYPE Declaration: Defines the document type as HTML5 -->
+<!DOCTYPE html>
+
+<!-- HTML Tag: Root element that contains all content and has lang="en" for English language -->
+<html lang="en">
+    <!-- HEAD Tag: Contains metadata and document configuration -->
+    <head>
+        <!-- Meta Charset: Specifies character encoding (UTF-8 supports all languages) -->
+        <meta charset="UTF-8">
+        
+        <!-- Meta Viewport: Makes the page responsive on different device sizes -->
+        <meta name="viewport" content = "width=device-width, initial-scale=1.25">
+        
+        <!-- Meta Description: Provides a brief description for search engines and browser tabs -->
+        <meta name="description" content ="A simple to do application built withhtml,css,and javascript to help you manage yourtasks.">
+        
+        <!-- Meta Keywords: Lists keywords relevant to the page for SEO purposes -->
+        <meta name="keywords" content ="todo,app,javascript,html,css,tasks,productivity">
+        
+        <!-- TITLE Tag: Defines the title displayed in the browser tab -->
+        <title>SIMPLE TO DO APP</title>
+        
+        <!-- LINK Tag: Links external CSS stylesheet for styling the page -->
+        <link rel ="stylesheet" href ="styles.css"> 
+    </head>
+    
+    <!-- BODY Tag: Contains all visible content of the webpage -->
+    <body>
+        <!-- Menu button: three horizontal lines for switching pages -->
+        <button id="menu-btn" class="menu-btn" aria-label="Menu">☰</button>
+
+        <!-- Todo page section -->
+        <div id="todo-page" class="page">
+            <div class ="container">
+                <!-- H1 Tag: Main heading (largest heading level) for the page title -->
+                <h1>SIMPLE-TO-DO</h1>
+                
+                <!-- DIV Tag: Container for input field and add button -->
+                <div class="input-container">
+                    <!-- INPUT Tag: Text input field where users enter new todo items -->
+                    <input type="text" id="todo-input" placeholder="Enter the to-do">
+                    
+                    <!-- BUTTON Tag: Clickable button to add the entered todo to the list -->
+                    <button id="add-btn">ADD TODO</button>
+                </div>
+                
+                <!-- UL Tag: Unordered list that displays all the added todo items -->
+                <ul id ="todo-list"></ul>
+            </div>
+        </div>
+
+        <!-- About page section (hidden by default) -->
+        <div id="about-page" class="page hidden">
+            <div class="container">
+                <h1>About Us</h1>
+                <p>Welcome to our simple todo app. This app helps you track tasks with an easy switch between task management and about information.</p>
+                <p>The menu button uses a small icon of three horizontal lines to toggle between pages.</p>
+             <button id="info-btn">info 🎁</button>
+            </div>
+           
+        </div>
+        <div id="info-page" class="page hidden">
+            <div class="container">
+                <h1>Info</h1>
+                <p>I am eating, so please contact me later</p>
+                <p> Phone:+91 9249257093</p>
+                <div class="image">
+                    
+                </div>
+           <button id="return-btn">↩</button> </div>
+        </div>
+        <!-- Dark Mode Toggle Button -->
+        <button id="dark-mode-btn">🌙</button>
+        
+        <!-- SCRIPT Tag: Links external JavaScript file for interactivity and functionality -->
+        <script src="script.js"> </script>
+    </body> 
+</html>
