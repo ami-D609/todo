@@ -13,6 +13,58 @@ document.addEventListener('DOMContentLoaded', () => {
     const infoPage = document.getElementById('info-page');
     const returnBtn = document.getElementById('return-btn');
 
+    /* Load saved todos on page load */
+    loadTodos();
+
+    /* Functions for persisting todos in localStorage */
+    function saveTodos() {
+        const todos = [];
+        document.querySelectorAll('.todo-text').forEach(span => {
+            todos.push(span.textContent);
+        });
+        localStorage.setItem('todos', JSON.stringify(todos));
+    }
+
+    function loadTodos() {
+        const savedTodos = localStorage.getItem('todos');
+        if (savedTodos) {
+            const todos = JSON.parse(savedTodos);
+            todos.forEach(todoText => {
+                addTodoFromStorage(todoText);
+            });
+        }
+    }
+
+    /* Helper function to add todo from storage without clearing input */
+    function addTodoFromStorage(todoText) {
+        /* Create a new list item (LI) element */
+        const l = document.createElement('li');
+        l.className = 'todo-item';
+
+        /* Create a SPAN element to display the todo text */
+        const span = document.createElement('span');
+        span.className = 'todo-text';
+        span.textContent = todoText;
+
+        /* Create a delete button for removing the todo */
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.textContent = 'Delete';
+        
+        /* Add click event to delete button to remove the todo item and save */
+        deleteBtn.addEventListener('click', () => {
+            todoList.removeChild(l);
+            saveTodos();
+        });
+
+        /* Add the text span and delete button to the list item */
+        l.appendChild(span);
+        l.appendChild(deleteBtn);
+        
+        /* Add the completed list item to the todo list */
+        todoList.appendChild(l);
+    }
+
     /* Create a lightweight click sound using the Web Audio API */
     const click = new (window.AudioContext || window.webkitAudioContext)();
     function playClickSound(frequency = 520) {
@@ -132,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         /* Add click event to delete button to remove the todo item */
         deleteBtn.addEventListener('click', () => {
             todoList.removeChild(l);
+            saveTodos();
         });
 
         /* Add the text span and delete button to the list item */
@@ -140,6 +193,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         /* Add the completed list item to the todo list */
         todoList.appendChild(l);
+
+        /* Save todos after adding */
+        saveTodos();
 
         /* Clear the input field for the next todo */
         todoInput.value = '';
