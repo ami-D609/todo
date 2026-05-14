@@ -468,7 +468,7 @@ left:20px;
  background-color: oklab(21.455% 0.0015 0.00044);
  color:rgb(150, 8, 8);
   border:none;
-  border: #9c1c29 solid 2px;
+  border: #b60a1b solid 2px;
 cursor:pointer;}
 .image
   {padding:30px;
@@ -482,6 +482,6 @@ cursor:pointer;}
    height:150px;
    width:200px;
    background-color:transparent;
-   color:white;
+   color:rgba(56, 232, 255, 0.158);
    border-radius :4px 4px 4px 4px;
   }
