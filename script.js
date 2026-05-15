@@ -233,12 +233,12 @@ document.addEventListener('DOMContentLoaded', () => {
      if(timer>0)
    {
     setTimeout(()=>{
-        
-        alert(`Reminder:${todoText}`);
+      
       playClickSound(5000,1);
       playClickSound(500,1);
           playClickSound(1000,0.5);
       playClickSound(300,0.05);
+        alert(`Reminder:${todoText}`);
         todoList.removeChild(document.querySelector(`.todo-item`));
         saveTodos();}
 ,timer)
