@@ -526,3 +526,11 @@ margin: 0px 60px;
 border-radius:8px 8px 8px 8px;
 color:#181616;
 background-color:rgb(201, 167, 174) ;}
+#clock
+{position:fixed;
+top:60px;
+left:20px;
+ font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ font-weight: bold;
+color:rgb(214, 114, 114);
+}
