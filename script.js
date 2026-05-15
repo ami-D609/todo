@@ -239,7 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
           playClickSound(1000,0.5);
       playClickSound(300,0.05);
         alert(`Reminder:${todoText}`);
-        todoList.removeChild(document.querySelector(`.todo-item`));
         saveTodos();}
 ,timer)
    }}
