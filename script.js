@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteBtn.addEventListener('click', () => {
             playClickSound(1500,0.05);
             todoList.removeChild(l);
-            saveTodos();
+            
         });
 
         /* Add the text span and delete button to the list item */
