@@ -78,11 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     /* Create a lightweight click sound using the Web Audio API */
     const click = new (window.AudioContext || window.webkitAudioContext)();
-    function playClickSound(frequency = 520) {
+    function playClickSound(frequency = 520,dur=0.05) {
         if (typeof frequency !== 'number') {
             frequency = 520;
         }
-        const oscillator = click.createOscillator();
+        if(typeof dur!=='number')
+{ dur=0.05;}
+            const oscillator = click.createOscillator();
         const gain = click.createGain();
         oscillator.type = 'triangle';
         oscillator.frequency.value = frequency;
@@ -93,12 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
         oscillator.connect(gain);
         gain.connect(click.destination);
         oscillator.start();
-        oscillator.stop(click.currentTime + 0.05);
+        oscillator.stop(click.currentTime +dur);
     }
     /* Play sound on any button click in the app */
     document.querySelectorAll('button').forEach(button => {
      const i = button===addBtn?1000:220;
-        button.addEventListener('click', () => playClickSound(i));
+        button.addEventListener('click', () => playClickSound(i,0.05));
     });
     /* Click event listener: Runs addTodo function when button is clicked */
     addBtn.addEventListener('click', addTodo);
@@ -198,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         /* Add click event to delete button to remove the todo item */
         deleteBtn.addEventListener('click', () => {
-            playClickSound(1500);
+            playClickSound(1500,0.05);
             todoList.removeChild(l);
             saveTodos();
         });
@@ -230,10 +232,15 @@ document.addEventListener('DOMContentLoaded', () => {
      if(timer>0)
    {
     setTimeout(()=>{
+        
         alert(`Reminder:${todoText}`);
-        playClickSound(5000);
+      playClickSound(5000,1);
+      playClickSound(500,1);
+          playClickSound(1000,0.5);
+      playClickSound(300,0.05);
         todoList.removeChild(document.querySelector(`.todo-item`));
         saveTodos();}
 ,timer)
    }}
+
 });
