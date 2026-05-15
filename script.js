@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         
       playClickSound(5000,3);
-      playClickSound(500,1);
+      playClickSound(500,2);
           playClickSound(1000,0.5);
       playClickSound(300,0.05);
         alert(`Reminder:${todoText}`);
