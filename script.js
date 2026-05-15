@@ -13,10 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const infoBtn = document.getElementById('info-btn');
     const infoPage = document.getElementById('info-page');
     const returnBtn = document.getElementById('return-btn');
-
+    
+    setInterval(updateClock,1000);
     /* Load saved todos on page load */
     loadTodos();
-
+    
     /* Functions for persisting todos in localStorage */
     function saveTodos() {
         const todos = [];
@@ -233,15 +234,19 @@ document.addEventListener('DOMContentLoaded', () => {
    {
     setTimeout(()=>{
         
-        
-      playClickSound(5000,3);
-      playClickSound(500,2);
+        alert(`Reminder:${todoText}`);
+      playClickSound(5000,1);
+      playClickSound(500,1);
           playClickSound(1000,0.5);
       playClickSound(300,0.05);
-        alert(`Reminder:${todoText}`);
         todoList.removeChild(document.querySelector(`.todo-item`));
         saveTodos();}
 ,timer)
    }}
 
+function updateClock()
+{ const now = new Date();
+    const timeString =now.toLocaleTimeString();
+    document.getElementById('clock').textContent=timeString
+}
 });
