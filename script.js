@@ -3,6 +3,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     /* Get references to HTML elements by their IDs */
     const todoInput = document.getElementById('todo-input');      // Text input field
+    const reminderInput = document.getElementById('reminder-input'); // Reminder datetime input
     const addBtn = document.getElementById('add-btn');            // Add button
     const todoList = document.getElementById('todo-list');        // Todo list container
     const darkModeBtn = document.getElementById('dark-mode-btn'); // Dark mode toggle button
@@ -19,8 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     /* Functions for persisting todos in localStorage */
     function saveTodos() {
         const todos = [];
-        document.querySelectorAll('.todo-text').forEach(span => {
-            todos.push(span.textContent);
+        document.querySelectorAll('.todo-item').forEach(li => {
+            const span = li.querySelector('.todo-text');
+            const reminder = li.dataset.reminder || null;
+            todos.push({ text: span.textContent, reminder: reminder });
         });
         localStorage.setItem('todos', JSON.stringify(todos));
     }
@@ -29,17 +32,20 @@ document.addEventListener('DOMContentLoaded', () => {
         const savedTodos = localStorage.getItem('todos');
         if (savedTodos) {
             const todos = JSON.parse(savedTodos);
-            todos.forEach(todoText => {
-                addTodoFromStorage(todoText);
+            todos.forEach(todo => {
+                addTodoFromStorage(todo.text, todo.reminder);
             });
         }
     }
 
     /* Helper function to add todo from storage without clearing input */
-    function addTodoFromStorage(todoText) {
+    function addTodoFromStorage(todoText, reminderTime) {
         /* Create a new list item (LI) element */
         const l = document.createElement('li');
         l.className = 'todo-item';
+        if (reminderTime) {
+            l.dataset.reminder = reminderTime;
+        }
 
         /* Create a SPAN element to display the todo text */
         const span = document.createElement('span');
@@ -63,6 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
         /* Add the completed list item to the todo list */
         todoList.appendChild(l);
+
+        /* Schedule reminder if set */
+        if (reminderTime) {
+            scheduleReminder(todoText, reminderTime);
+        }
     }
 
     /* Create a lightweight click sound using the Web Audio API */
@@ -163,6 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function addTodo() {
         /* Get the input value and remove extra spaces */
         const todoText = todoInput.value.trim();
+        const reminderTime = reminderInput.value;
         
         /* Exit if input is empty */
         if (todoText === '') return;
@@ -170,6 +182,9 @@ document.addEventListener('DOMContentLoaded', () => {
         /* Create a new list item (LI) element */
         const l = document.createElement('li');
         l.className = 'todo-item';
+        if (reminderTime) {
+            l.dataset.reminder = reminderTime;
+        }
 
         /* Create a SPAN element to display the todo text */
         const span = document.createElement('span');
@@ -183,6 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         /* Add click event to delete button to remove the todo item */
         deleteBtn.addEventListener('click', () => {
+            playClickSound(1500);
             todoList.removeChild(l);
             saveTodos();
         });
@@ -197,7 +213,27 @@ document.addEventListener('DOMContentLoaded', () => {
         /* Save todos after adding */
         saveTodos();
 
-        /* Clear the input field for the next todo */
+        /* Schedule reminder if set */
+        if (reminderTime) {
+            scheduleReminder(todoText, reminderTime);
+        }
+
+        /* Clear the input fields for the next todo */
         todoInput.value = '';
+        reminderInput.value = '';
     }
+
+   function scheduleReminder(todoText, reminderTime)
+   { const now=new Date();
+     const reminder=new Date(reminderInput.value);
+     const timer=reminder-now;
+     if(timer>0)
+   {
+    setTimeout(()=>{
+        alert(`Reminder:${todoText}`);
+        playClickSound(5000);
+        todoList.removeChild(document.querySelector(`.todo-item`));
+        saveTodos();}
+,timer)
+   }}
 });

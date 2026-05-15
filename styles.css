@@ -485,3 +485,44 @@ cursor:pointer;}
    color:rgba(56, 232, 255, 0.158);
    border-radius :4px 4px 4px 4px;
   }
+ 
+  #reminder-input
+  { display: flex;
+   align-items: center;
+   justify-content:center;
+   border-color: #ffbdc4;
+padding: 10px;
+margin: 0px 60px;
+border-radius:8px 8px 8px 8px;
+color:#888181;}
+#reminder-input:hover
+  { display: flex;
+   align-items: center;
+   justify-content:center;
+   border-color: #f17481;
+padding: 10px;
+margin: 0px 60px;
+border-radius:8px 8px 8px 8px;
+color:#181616;
+background-color:rgb(248, 228, 232) ;}
+ 
+body.dark-mode  #reminder-input
+  { display: flex;
+   align-items: center;
+   justify-content:center;
+   border-color: #a3595f;
+padding: 10px;
+margin: 0px 60px;
+border-radius:8px 8px 8px 8px;
+color:#bbb9b9;
+background-color:rgba(17, 18, 19, 0.87) ;}
+body.dark-mode #reminder-input:hover
+  { display: flex;
+   align-items: center;
+   justify-content:center;
+   border-color: #f17481;
+padding: 10px;
+margin: 0px 60px;
+border-radius:8px 8px 8px 8px;
+color:#181616;
+background-color:rgb(201, 167, 174) ;}
