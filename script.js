@@ -44,15 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
         /* Create a new list item (LI) element */
         const l = document.createElement('li');
         l.className = 'todo-item';
-        if (reminderTime) {
-            l.dataset.reminder = reminderTime;
-        }
-
-        /* Create a SPAN element to display the todo text */
         const span = document.createElement('span');
         span.className = 'todo-text';
-        span.textContent = todoText;
-
+        
+        if (reminderTime) {
+            l.dataset.reminder = reminderTime;
+            span.textContent = '⏰'+todoText;}                       
+        else
+        {span.textContent = '⭐'+todoText; }
         /* Create a delete button for removing the todo */
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'delete-btn';
@@ -190,9 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (reminderTime) {
             l.dataset.reminder = reminderTime;
-            span.textContent = ⏰+todoText;}                       
+            span.textContent = '⏰'+todoText;}                       
         else
-        {span.textContent = ⭐+todoText; }
+        {span.textContent = '⭐'+todoText; }
         /* Create a delete button for removing the todo */
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'delete-btn';
