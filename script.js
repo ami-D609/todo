@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (reminderTime) {
             l.dataset.reminder = reminderTime;
-            span.textContent = '⏰  :'+todoText;}                       
+            span.textContent = todoText;}                       
         else
-        {span.textContent = '⭐  :'+todoText; }
+        {span.textContent = todoText; }
         /* Create a delete button for removing the todo */
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'delete-btn';
