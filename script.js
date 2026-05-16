@@ -179,10 +179,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const reminderTime = reminderInput.value;
         
         /* Exit if input is empty */
-        if (todoText === '') return;     
+        if (todoText === '') return;  
+        const l = document.createElement('li');
         l.className = 'todo-item';
         /* Create a new list item (LI) element */
-        const l = document.createElement('li');
+        
         /* Create a SPAN element to display the todo text */
         const span = document.createElement('span');
         span.className = 'todo-text';
